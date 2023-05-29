@@ -1,10 +1,10 @@
 part of 'note_bloc.dart';
 
 class NoteState extends Equatable {
-  final List<PhotoResponse> list;
+  final List<AlbomResponse> list;
 
-   const NoteState({required this.list});
-  NoteState copyWith({List<PhotoResponse>? list}) {
+    NoteState({required this.list});
+  NoteState copyWith({List<AlbomResponse>? list}) {
     return NoteState(list: list ?? this.list);
   }
   @override

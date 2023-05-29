@@ -28,31 +28,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar( centerTitle: true,
-        title: Text("Notes"),
+        title: Text("Albom"),
       ),
 
       body:  BlocBuilder<NoteBloc, NoteState>(builder: (_, state) {
-        return GridView.builder(
+        return ListView.builder(
           itemCount: state.list.length,
           padding: const EdgeInsets.all(5),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5),
           itemBuilder: (BuildContext context, int index) {
-            return Stack(
-              children: [
-                Positioned(
-                  child: Image.network(
-                    state.list[index].url ?? "",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                    bottom: 5,
-                    child: Text(
-                      state.list[index].title ?? "",
-                      style: const TextStyle(fontSize: 6),
-                    )),
-              ],
+            return ListTile(
+              leading: Text((state.list[index].id).toString(), style: TextStyle(fontSize: 20),),
+               title: Text(
+                state.list[index].title ?? "",
+                style: const TextStyle(fontSize: 20),
+              ),
             );
           },
         );
